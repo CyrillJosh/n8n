@@ -84,12 +84,12 @@ ticketForm.addEventListener('submit', async (event) => {
   const data = Object.fromEntries(formData.entries());
 
   // Encode parameters to handle spaces and special characters safely
-  const params = new URLSearchParams({
+  const params = new ({
     email: data.email,
     body: data.body
   });
 
-  const response = await fetch(`https://odato.app.n8n.cloud/webhook/ticket?${params.toString()}`, {
+  const response = await fetch(`https://odato.app.n8n.cloud/webhook/ticket?email=${params.email}&body=${params.body}`, {
     method: 'POST'
   });
 });
